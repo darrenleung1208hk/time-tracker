@@ -48,7 +48,11 @@
     "vite-plugin-pwa": "^0.14.1"
   },
   "lint-staged": {
-    "*.{ts,tsx}": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "**/*.+(js|ts|tsx)": [
+      "eslint --ignore-path .gitignore --fix"
+    ],
+    "**/*.+(js|ts|tsx|css|json)": [
+      "prettier --ignore-path .gitignore --write"
+    ]
   }
 }
