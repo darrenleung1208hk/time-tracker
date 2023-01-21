@@ -17,5 +17,8 @@
 				"extensions": [".js", ".jsx", ".ts", ".tsx"]
 			}
 		}
+	},
+	"rules": {
+		"react/no-unescaped-entities": 0
 	}
 }
