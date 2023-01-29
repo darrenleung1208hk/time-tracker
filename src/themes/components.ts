@@ -1,18 +1,16 @@
-import { Theme } from "@mui/material";
-
 export default {
   MuiButton: {
     defaultProps: {
       disableElevation: true,
     },
     styleOverrides: {
-      root: ({ theme }: { theme: Theme }) => ({
-        borderRadius: theme.spacing(1),
-        paddingTop: theme.spacing(1),
-        paddingBottom: theme.spacing(1),
-        paddingLeft: theme.spacing(3),
-        paddingRight: theme.spacing(3),
-      }),
+      root: {
+        borderRadius: "8px",
+        paddingTop: "8px",
+        paddingBottom: "8px",
+        paddingLeft: "24px",
+        paddingRight: "24px",
+      },
     },
   },
 };
