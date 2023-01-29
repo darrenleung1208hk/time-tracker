@@ -1,0 +1,39 @@
+<!-- Colors.stories.mdx -->
+
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs";
+import theme from "../themes";
+
+<Meta title="Colors" />
+
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    subtitle="Green"
+    colors={{
+      light: theme.palette.primary.light,
+      main: theme.palette.primary.main,
+      dark: theme.palette.primary.dark,
+      contrastText: theme.palette.primary.contrastText,
+    }}
+  />
+  <ColorItem
+    title="Secondary"
+    subtitle="Cyan"
+    colors={{
+      light: theme.palette.secondary.light,
+      main: theme.palette.secondary.main,
+      dark: theme.palette.secondary.dark,
+      contrastText: theme.palette.secondary.contrastText,
+    }}
+  />
+  <ColorItem
+    title="Error"
+    subtitle="Red"
+    colors={{
+      light: theme.palette.error.light,
+      main: theme.palette.error.main,
+      dark: theme.palette.error.dark,
+      contrastText: theme.palette.error.contrastText,
+    }}
+  />
+</ColorPalette>
