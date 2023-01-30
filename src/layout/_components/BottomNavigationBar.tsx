@@ -62,6 +62,11 @@ const BottomNavigationBar = ({ onChange }: Props) => {
           label={label}
           value={value}
           icon={icon}
+          sx={{
+            "& .MuiBottomNavigationAction-label.Mui-selected": {
+              fontSize: "12px",
+            },
+          }}
         />
       ))}
     </MuiBottomNavigation>
