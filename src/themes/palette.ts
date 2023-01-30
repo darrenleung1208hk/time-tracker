@@ -57,19 +57,19 @@ const COLORS = {
 
 export default {
   primary: {
-    light: COLORS.green[100],
+    light: COLORS.green[50],
     main: COLORS.green[400],
     dark: COLORS.green[700],
     contrastText: COLORS.white,
   },
   secondary: {
-    light: COLORS.cyan[100],
+    light: COLORS.cyan[50],
     main: COLORS.cyan[400],
     dark: COLORS.cyan[700],
     contrastText: COLORS.white,
   },
   error: {
-    light: COLORS.red[100],
+    light: COLORS.red[50],
     main: COLORS.red[400],
     dark: COLORS.red[700],
   },
