@@ -7,29 +7,62 @@ import {
   LocationOn as LocationOnIcon,
 } from "@mui/icons-material";
 
-interface Props {
+const actions = [
+  {
+    label: "Browse",
+    value: "browse",
+    icon: <FormatListBulletedIcon />,
+  },
+  {
+    label: "Statistics",
+    value: "statistics",
+    icon: <FavoriteIcon />,
+  },
+  {
+    label: "Search",
+    value: "search",
+    icon: <LocationOnIcon />,
+  },
+];
+
+type Props = {
   onChange?: (event: React.SyntheticEvent<Element, Event>) => void;
-}
+};
 
 const BottomNavigationBar = ({ onChange }: Props) => {
-  const [value, setValue] = useState<number>(0);
+  const [value, setValue] = useState<"browse" | "statistics" | "search">(
+    "browse",
+  );
 
   const handleChange = (
     event: React.SyntheticEvent<Element, Event>,
-    newValue: number,
+    newValue: "browse" | "statistics" | "search",
   ) => {
     setValue(newValue);
     onChange?.(event);
   };
 
   return (
-    <MuiBottomNavigation value={value} onChange={handleChange} showLabels>
-      <MuiBottomNavigationAction
-        label="Browse"
-        icon={<FormatListBulletedIcon />}
-      />
-      <MuiBottomNavigationAction label="Statistics" icon={<FavoriteIcon />} />
-      <MuiBottomNavigationAction label="Search" icon={<LocationOnIcon />} />
+    <MuiBottomNavigation
+      value={value}
+      onChange={handleChange}
+      showLabels
+      sx={{
+        py: "12px",
+        width: "100%",
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+      }}
+    >
+      {actions.map(({ label, value, icon }, index) => (
+        <MuiBottomNavigationAction
+          key={index}
+          label={label}
+          value={value}
+          icon={icon}
+        />
+      ))}
     </MuiBottomNavigation>
   );
 };
