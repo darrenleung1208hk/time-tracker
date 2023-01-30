@@ -6,6 +6,7 @@ import {
   BarChart as BarCharIcon,
   Search as SearchIcon,
 } from "@mui/icons-material";
+import Box from "@mui/material/Box";
 
 const actions = [
   {
@@ -56,13 +57,21 @@ const BottomNavigationBar = ({ onChange }: Props) => {
         filter: "drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.05));",
       }}
     >
-      {actions.map(({ label, value, icon }, index) => (
+      {actions.map((action, index) => (
         <MuiBottomNavigationAction
+          {...action}
           key={index}
-          label={label}
-          value={value}
-          icon={icon}
           disableTouchRipple
+          icon={
+            <Box
+              bgcolor={action.value === value ? "primary.light" : undefined}
+              px={"20px"}
+              py={"4px"}
+              borderRadius={"32px"}
+            >
+              {action.icon}
+            </Box>
+          }
           sx={{
             color: "primary.main",
             fontSize: "12px",
