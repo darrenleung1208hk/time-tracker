@@ -48,11 +48,13 @@ const BottomNavigationBar = ({ onChange }: Props) => {
       onChange={handleChange}
       showLabels
       sx={{
-        py: "12px",
+        pt: "12px",
+        pb: "48px",
         width: "100%",
         position: "fixed",
         bottom: 0,
         left: 0,
+        filter: "drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.05));",
       }}
     >
       {actions.map(({ label, value, icon }, index) => (
