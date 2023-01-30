@@ -3,8 +3,8 @@ import { default as MuiBottomNavigation } from "@mui/material/BottomNavigation";
 import { default as MuiBottomNavigationAction } from "@mui/material/BottomNavigationAction";
 import {
   FormatListBulleted as FormatListBulletedIcon,
-  Favorite as FavoriteIcon,
-  LocationOn as LocationOnIcon,
+  BarChart as BarCharIcon,
+  Search as SearchIcon,
 } from "@mui/icons-material";
 
 const actions = [
@@ -16,12 +16,12 @@ const actions = [
   {
     label: "Statistics",
     value: "statistics",
-    icon: <FavoriteIcon />,
+    icon: <BarCharIcon />,
   },
   {
     label: "Search",
     value: "search",
-    icon: <LocationOnIcon />,
+    icon: <SearchIcon />,
   },
 ];
 
