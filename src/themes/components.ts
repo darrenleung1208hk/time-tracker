@@ -1,5 +1,3 @@
-import { Theme } from "@mui/material";
-
 export default {
   MuiButton: {
     defaultProps: {
@@ -13,16 +11,6 @@ export default {
         paddingLeft: "24px",
         paddingRight: "24px",
       },
-    },
-  },
-  MuiBottomNavigationAction: {
-    defaultProps: {
-      disableTouchRipple: true,
-    },
-    styleOverrides: {
-      label: ({ theme }: { theme: Theme }) => ({
-        marginTop: theme.spacing(1),
-      }),
     },
   },
 };

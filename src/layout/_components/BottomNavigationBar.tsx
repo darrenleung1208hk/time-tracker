@@ -62,7 +62,13 @@ const BottomNavigationBar = ({ onChange }: Props) => {
           label={label}
           value={value}
           icon={icon}
+          disableTouchRipple
           sx={{
+            color: "primary.main",
+            fontSize: "12px",
+            "& .MuiBottomNavigationAction-label": {
+              mt: 1,
+            },
             "& .MuiBottomNavigationAction-label.Mui-selected": {
               fontSize: "12px",
             },
