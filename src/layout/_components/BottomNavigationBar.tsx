@@ -49,7 +49,8 @@ const BottomNavigationBar = ({ onChange }: Props) => {
       onChange={handleChange}
       showLabels
       sx={{
-        py: "12px",
+        pt: "12px",
+        pb: "36px",
         width: "100%",
         position: "fixed",
         bottom: 0,
