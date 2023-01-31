@@ -8,34 +8,43 @@ import {
 } from "@mui/icons-material";
 import Box from "@mui/material/Box";
 
+enum NavigationValue {
+  Browse = "browse",
+  Statistics = "statistics",
+  Search = "search",
+}
+
 const actions = [
   {
     label: "Browse",
-    // value: "browse",
+    value: "browse",
     icon: <FormatListBulletedIcon />,
   },
   {
     label: "Statistics",
-    // value: "statistics",
+    value: "statistics",
     icon: <BarCharIcon />,
   },
   {
     label: "Search",
-    // value: "search",
+    value: "search",
     icon: <SearchIcon />,
   },
 ];
+
+const getNavigationValue = (value: NavigationValue) =>
+  actions.findIndex((action) => action.value === value);
 
 type Props = {
   onChange?: (event: React.SyntheticEvent<Element, Event>) => void;
 };
 
 const BottomNavigationBar = ({ onChange }: Props) => {
-  const [value, setValue] = useState<number>(1);
+  const [value, setValue] = useState<NavigationValue>(NavigationValue.Browse);
 
   const handleChange = (
     event: React.SyntheticEvent<Element, Event>,
-    newValue: number,
+    newValue: NavigationValue,
   ) => {
     setValue(newValue);
     onChange?.(event);
@@ -60,7 +69,7 @@ const BottomNavigationBar = ({ onChange }: Props) => {
         position={"absolute"}
         left={0}
         width={"calc(100vw / 3)"}
-        pl={`calc(${100 * (value - 1)}vw / 3)`}
+        pl={`calc(${100 * getNavigationValue(value)}vw / 3)`}
         sx={{ transition: "padding-left 0.25s" }}
       >
         <Box
@@ -78,7 +87,7 @@ const BottomNavigationBar = ({ onChange }: Props) => {
           disableTouchRipple
           icon={
             <Box
-              color={index + 1 === value ? "primary.dark" : undefined}
+              color={action.value === value ? "primary.dark" : undefined}
               px={"20px"}
               py={"4px"}
               borderRadius={"32px"}
