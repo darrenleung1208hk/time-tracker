@@ -61,6 +61,7 @@ const BottomNavigationBar = ({ onChange }: Props) => {
         left={0}
         width={"calc(100vw / 3)"}
         pl={`calc(${100 * (value - 1)}vw / 3)`}
+        sx={{ transition: "padding-left 0.25s" }}
       >
         <Box
           bgcolor={"primary.light"}
