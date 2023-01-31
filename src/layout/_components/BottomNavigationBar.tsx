@@ -65,7 +65,7 @@ const BottomNavigationBar = ({ onChange }: Props) => {
           disableTouchRipple
           icon={
             <Box
-              bgcolor={action.value === value ? "primary.light" : undefined}
+              color={action.value === value ? "primary.dark" : undefined}
               px={"20px"}
               py={"4px"}
               borderRadius={"32px"}
@@ -76,9 +76,8 @@ const BottomNavigationBar = ({ onChange }: Props) => {
           sx={{
             color: "primary.main",
             fontSize: "12px",
-            "& .MuiBottomNavigationAction-label": {
-              mt: 1,
-            },
+            "& .Mui-selected": { color: "primary.dark" },
+            "& .MuiBottomNavigationAction-label": { mt: 1 },
             "& .MuiBottomNavigationAction-label.Mui-selected": {
               fontSize: "12px",
             },
