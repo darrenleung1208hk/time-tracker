@@ -7,6 +7,7 @@ import {
   Search as SearchIcon,
 } from "@mui/icons-material";
 import Box from "@mui/material/Box";
+import { motion } from "framer-motion";
 
 enum NavigationValue {
   Browse = "browse",
@@ -32,7 +33,7 @@ const actions = [
   },
 ];
 
-const getNavigationValue = (value: NavigationValue) =>
+const getNavigationIndex = (value: NavigationValue) =>
   actions.findIndex((action) => action.value === value);
 
 type Props = {
@@ -65,12 +66,9 @@ const BottomNavigationBar = ({ onChange }: Props) => {
         filter: "drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.05));",
       }}
     >
-      <Box
-        position={"absolute"}
-        left={0}
-        width={"calc(100vw / 3)"}
-        pl={`calc(${100 * getNavigationValue(value)}vw / 3)`}
-        sx={{ transition: "padding-left 0.25s" }}
+      <motion.div
+        animate={{ x: `${100 * (getNavigationIndex(value) - 1)}%` }}
+        style={{ position: "absolute", width: `min(168px, ${100 / 3}vw)` }}
       >
         <Box
           bgcolor={"primary.light"}
@@ -79,7 +77,7 @@ const BottomNavigationBar = ({ onChange }: Props) => {
           borderRadius={4}
           mx={"auto"}
         />
-      </Box>
+      </motion.div>
       {actions.map((action, index) => (
         <MuiBottomNavigationAction
           {...action}
