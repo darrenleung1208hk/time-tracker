@@ -68,6 +68,7 @@ const BottomNavigationBar = ({ onChange }: Props) => {
     >
       <motion.div
         animate={{ x: `${100 * (getNavigationIndex(value) - 1)}%` }}
+        transition={{ type: "linear", duration: 0.25 }}
         style={{ position: "absolute", width: `min(168px, ${100 / 3}vw)` }}
       >
         <Box
