@@ -14,7 +14,7 @@ const Entry = ({ category, title, color }: Props) => {
     <Paper
       elevation={0}
       variant={"outlined"}
-      sx={{ p: 3, borderRadius: "8px" }}
+      sx={{ px: 3, py: 2, borderRadius: "8px" }}
     >
       <Typography variant={"body2"} sx={{ mb: 1, color }}>
         #{category}
