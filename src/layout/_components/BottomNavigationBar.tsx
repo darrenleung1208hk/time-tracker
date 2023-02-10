@@ -1,13 +1,13 @@
+import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { default as MuiBottomNavigation } from "@mui/material/BottomNavigation";
-import { default as MuiBottomNavigationAction } from "@mui/material/BottomNavigationAction";
 import {
-  FormatListBulleted as FormatListBulletedIcon,
   BarChart as BarCharIcon,
+  FormatListBulleted as FormatListBulletedIcon,
   Search as SearchIcon,
 } from "@mui/icons-material";
+import { default as MuiBottomNavigation } from "@mui/material/BottomNavigation";
+import { default as MuiBottomNavigationAction } from "@mui/material/BottomNavigationAction";
 import Box from "@mui/material/Box";
-import { motion } from "framer-motion";
 
 enum NavigationValue {
   Browse = "browse",
