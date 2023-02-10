@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Entry from "./Entry";
 
 export default {
@@ -11,6 +11,10 @@ export default {
     },
     title: {
       defaultValue: "Lorem ipsum...",
+    },
+    duration: {
+      defaultValue: 1,
+      control: { type: "number" },
     },
   },
 } as ComponentMeta<typeof Entry>;
