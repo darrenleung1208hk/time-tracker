@@ -19,17 +19,17 @@ const actions = [
   {
     label: "Browse",
     value: "browse",
-    icon: <FormatListBulletedIcon />,
+    icon: FormatListBulletedIcon,
   },
   {
     label: "Statistics",
     value: "statistics",
-    icon: <BarCharIcon />,
+    icon: BarCharIcon,
   },
   {
     label: "Search",
     value: "search",
-    icon: <SearchIcon />,
+    icon: SearchIcon,
   },
 ];
 
@@ -85,14 +85,14 @@ const BottomNavigationBar = ({ onChange }: Props) => {
           key={index}
           disableTouchRipple
           icon={
-            <Box
-              color={action.value === value ? "primary.dark" : undefined}
-              px={"20px"}
-              py={"4px"}
-              borderRadius={"32px"}
-            >
-              {action.icon}
-            </Box>
+            <action.icon
+              sx={{
+                color:
+                  index === getNavigationIndex(value)
+                    ? "primary.dark"
+                    : undefined,
+              }}
+            />
           }
           sx={{
             color: "primary.main",
