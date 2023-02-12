@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { signInGoogle } from "@/lib/auth";
 
-const SignIn = () => {
+const Login = () => {
   return (
     <Stack
       justifyContent={"center"}
@@ -24,4 +24,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Login;
