@@ -2,13 +2,18 @@ import React from "react";
 import { RouteObject } from "react-router-dom";
 import { Home, Login } from "@/pages";
 
+export const ROUTES = {
+  LOGIN: "/login",
+  HOME: "/browse",
+};
+
 const routes: RouteObject[] = [
   {
-    path: "/login",
+    path: ROUTES.LOGIN,
     element: <Login />,
   },
   {
-    path: "/browse",
+    path: ROUTES.HOME,
     element: <Home />,
   },
 ];
