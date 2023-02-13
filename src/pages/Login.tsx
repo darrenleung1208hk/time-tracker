@@ -2,9 +2,11 @@ import React from "react";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { signInGoogle } from "@/lib/auth";
+import { useAuth } from "@/lib/auth";
 
 const Login = () => {
+  const { logInGoogle } = useAuth();
+
   return (
     <Stack
       justifyContent={"center"}
@@ -17,7 +19,7 @@ const Login = () => {
       <Typography fontWeight={700} paragraph>
         Help you to manage your time.
       </Typography>
-      <Button variant={"contained"} onClick={signInGoogle}>
+      <Button variant={"contained"} onClick={logInGoogle}>
         Sign in with Google
       </Button>
     </Stack>

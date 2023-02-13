@@ -1,11 +1,11 @@
 import React from "react";
 import { RouteObject } from "react-router-dom";
-import SignIn from "@/pages/SignIn";
+import Login from "@/pages/Login";
 
 const routes: RouteObject[] = [
   {
     path: "/login",
-    element: <SignIn />,
+    element: <Login />,
   },
 ];
 
