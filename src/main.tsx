@@ -1,12 +1,12 @@
-import routes from "@/routes";
-import theme from "@/themes";
 import "@fontsource/poppins";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@mui/material";
-import "@/styles/global.css";
 import { AuthProvider } from "@/lib/auth";
+import routes from "@/routes";
+import "@/styles/global.css";
+import theme from "@/themes";
 
 const router = createBrowserRouter(routes);
 

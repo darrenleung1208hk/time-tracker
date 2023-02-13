@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useAuth } from "@/lib/auth";
 
-const Login = () => {
+export const Login = () => {
   const { logInGoogle } = useAuth();
 
   return (
@@ -25,5 +25,3 @@ const Login = () => {
     </Stack>
   );
 };
-
-export default Login;
