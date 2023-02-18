@@ -1,44 +1,36 @@
 import {
   getAuth,
   GoogleAuthProvider,
+  onAuthStateChanged,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "@/lib/auth/context";
 import app from "@/lib/firebase";
-import { ROUTES } from "@/routes";
 
 const auth = getAuth(app);
 const googleAuthProvider = new GoogleAuthProvider();
 
 export const useAuth = () => {
-  const navigate = useNavigate();
   const { user, setUser } = useContext(AuthContext);
 
-  const logInGoogle = () =>
-    signInWithPopup(auth, googleAuthProvider)
-      .then((res) => {
+  useEffect(() => {
+    return onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, displayName: name, photoURL: avatar } = user;
         setUser({
-          uid: res.user.uid,
-          name: res.user.displayName,
-          avatar: res.user.photoURL,
+          uid,
+          name,
+          avatar,
         });
-        navigate(ROUTES.HOME);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      }
+    });
+  }, []);
 
-  const logOut = () =>
-    signOut(auth)
-      .then(() => {
-        setUser(null);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const logInGoogle = () => signInWithPopup(auth, googleAuthProvider);
+
+  const logOut = () => signOut(auth);
 
   return {
     logInGoogle,
