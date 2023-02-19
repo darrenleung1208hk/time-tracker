@@ -1,4 +1,5 @@
 import React from "react";
+import FloatingActionButton from "../components/FloatingActionButton/FloatingActionButton";
 import BottomNavigationBar from "./_components/BottomNavigationBar";
 
 interface Props {
@@ -9,6 +10,7 @@ const Layout = ({ children }: Props) => {
   return (
     <div>
       {children}
+      <FloatingActionButton />
       <BottomNavigationBar />
     </div>
   );
