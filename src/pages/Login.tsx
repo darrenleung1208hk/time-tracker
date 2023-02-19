@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
@@ -8,7 +8,13 @@ import { ROUTES } from "@/routes";
 
 export const Login = () => {
   const navigate = useNavigate();
-  const { logInGoogle } = useAuth();
+  const { logInGoogle, user } = useAuth();
+
+  useEffect(() => {
+    if (user) {
+      navigate(ROUTES.HOME);
+    }
+  }, [user]);
 
   const handleClick = async () => {
     try {
