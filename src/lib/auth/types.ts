@@ -1,3 +1,4 @@
+import { UserCredential } from "firebase/auth";
 import React from "react";
 
 export type User = {
@@ -9,6 +10,8 @@ export type User = {
 export type AuthContextType = {
   user: User | null;
   setUser: (user: User | null) => void;
+  logInGoogle: () => Promise<UserCredential>;
+  logOut: () => Promise<void>;
 };
 
 export type AuthProviderProps = { children: React.ReactNode };
