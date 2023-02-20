@@ -20,6 +20,7 @@ export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     return onAuthStateChanged(auth, (user) => {
@@ -31,6 +32,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           avatar,
         });
       }
+      setIsLoading(false);
     });
   }, []);
 
@@ -38,7 +40,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const logOut = () => signOut(auth);
 
-  const value = { user, setUser, logInGoogle, logOut };
+  const value = { user, setUser, isLoading, logInGoogle, logOut };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      {isLoading ? "Loading..." : children}
+    </AuthContext.Provider>
+  );
 };
