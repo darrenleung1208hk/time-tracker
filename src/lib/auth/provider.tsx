@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   return (
     <AuthContext.Provider value={value}>
-      {isLoading ? "Loading..." : children}
+      {isLoading ? null : children}
     </AuthContext.Provider>
   );
 };
