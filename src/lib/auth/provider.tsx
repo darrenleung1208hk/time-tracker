@@ -6,7 +6,7 @@ import {
   signOut,
 } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
-import { redirect, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "@/lib/constants";
 import app from "@/lib/firebase";
 import { AuthContextType, AuthProviderProps, User } from "./types";
@@ -41,8 +41,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, []);
 
   useEffect(() => {
-    if (pathname === ROUTES.LOGIN && user) {
-      redirect(ROUTES.HOME);
+    if (pathname === ROUTES.LOGIN && !!user) {
+      navigate(ROUTES.HOME);
     }
   }, [pathname, user]);
 
