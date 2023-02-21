@@ -10,11 +10,7 @@
   "importOrder": [
     "react",
     "^@mui/(.*)$",
-    "^@/assets/(.*)$",
-    "^@/styles/(.*)$",
-    "^@/stories/(.*)$",
-    "^@/layout/(.*)$",
-    "^@/components/(.*)$",
+    "^@/(.*)$",
     "^[./]"
   ]
 }
