@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useAuth } from "@/lib/auth";
-import { ROUTES } from "@/routes";
+import { ROUTES } from "@/lib/constants";
 
 export const Login = () => {
   const navigate = useNavigate();
