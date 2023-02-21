@@ -6,6 +6,8 @@ import {
   signOut,
 } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "@/lib/constants";
 import app from "@/lib/firebase";
 import { AuthContextType, AuthProviderProps, User } from "./types";
 
@@ -19,6 +21,7 @@ export const AuthContext = React.createContext<AuthContextType>(
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
+  const navigate = useNavigate();
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -36,7 +39,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     });
   }, []);
 
-  const logInGoogle = () => signInWithPopup(auth, googleAuthProvider);
+  const logInGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleAuthProvider);
+      navigate(ROUTES.HOME);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const logOut = () => signOut(auth);
 

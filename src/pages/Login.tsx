@@ -16,15 +16,6 @@ export const Login = () => {
     }
   }, [user]);
 
-  const handleClick = async () => {
-    try {
-      await logInGoogle();
-      navigate(ROUTES.HOME);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <Stack
       justifyContent={"center"}
@@ -37,7 +28,7 @@ export const Login = () => {
       <Typography fontWeight={700} paragraph>
         Help you to manage your time.
       </Typography>
-      <Button variant={"contained"} onClick={handleClick}>
+      <Button variant={"contained"} onClick={logInGoogle}>
         Sign in with Google
       </Button>
     </Stack>
