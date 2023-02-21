@@ -1,20 +1,13 @@
 import React from "react";
-import { redirect, RouteObject } from "react-router-dom";
+import { RouteObject } from "react-router-dom";
 import { Home, Login } from "@/pages";
 
 export const ROUTES = {
-  INDEX: "/",
   LOGIN: "/login",
-  HOME: "/browse",
+  HOME: "/",
 };
 
 const routes: RouteObject[] = [
-  {
-    path: ROUTES.INDEX,
-    loader: async () => {
-      return redirect(ROUTES.LOGIN);
-    },
-  },
   {
     path: ROUTES.LOGIN,
     element: <Login />,
