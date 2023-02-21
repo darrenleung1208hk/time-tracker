@@ -1,20 +1,11 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useAuth } from "@/lib/auth";
-import { ROUTES } from "@/lib/constants";
 
 export const Login = () => {
-  const navigate = useNavigate();
-  const { logInGoogle, user } = useAuth();
-
-  useEffect(() => {
-    if (user) {
-      navigate(ROUTES.HOME);
-    }
-  }, [user]);
+  const { logInGoogle } = useAuth();
 
   return (
     <Stack
