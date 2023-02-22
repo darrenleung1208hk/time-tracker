@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Outlet, Route, RouteProps } from "react-router-dom";
 import { AuthProvider } from "@/lib/auth";
 import { ROUTES } from "@/lib/constants";
-import { Home, Login } from "@/pages";
+
+const Home = React.lazy(() => import("@/pages/Home"));
+const Login = React.lazy(() => import("@/pages/Login"));
 
 const routes: RouteProps[] = [
   {
@@ -19,7 +21,9 @@ const AppRoutes = (
   <Route
     element={
       <AuthProvider>
-        <Outlet />
+        <Suspense>
+          <Outlet />
+        </Suspense>
       </AuthProvider>
     }
   >
