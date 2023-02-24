@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
 
 // Initialize Firebase
 const app = initializeApp({
@@ -12,7 +11,5 @@ const app = initializeApp({
   appId: import.meta.env.VITE_APP_ID,
   measurementId: import.meta.env.VITE_MEASUREMENT_ID,
 });
-
-export const db = getFirestore(app);
 
 export default app;
