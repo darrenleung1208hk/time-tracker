@@ -43,6 +43,6 @@ export async function fetchDocuments(
     });
     return data;
   } catch (error) {
-    return error.message || error;
+    throw new Error("Error occurred when querying documents from Firestore");
   }
 }
