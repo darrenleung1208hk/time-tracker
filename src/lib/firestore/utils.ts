@@ -4,7 +4,7 @@ import {
   getDocs,
   getFirestore,
 } from "firebase/firestore";
-import app from "../firebase";
+import app from "@/lib/firebase";
 
 const db = getFirestore(app);
 
