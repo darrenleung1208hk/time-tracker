@@ -1,3 +1,4 @@
+import { FirebaseError } from "firebase/app";
 import {
   collection,
   DocumentData,
@@ -43,6 +44,19 @@ export async function fetchDocuments(
     });
     return data;
   } catch (error) {
-    throw new Error("Error occurred when querying documents from Firestore");
+    if (error instanceof FirebaseError) {
+      switch (error.code) {
+        case "permission-denied":
+          throw new Error(
+            "Permission denied. User does not have access to this data.",
+          );
+        case "not-found":
+          throw new Error("Data not found.");
+        default:
+          throw new Error(`An error occurred: ${error.code}`);
+      }
+    } else {
+      throw new Error(`An unknown error occurred: ${(error as Error).message}`);
+    }
   }
 }
