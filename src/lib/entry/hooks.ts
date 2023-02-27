@@ -5,7 +5,7 @@ import { Entry } from "@/lib/entry/types";
 
 export const useEntries = () => {
   const { user } = useAuth();
-  const [data, setData] = useState<Entry[]>();
+  const [data, setData] = useState<Entry[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error>();
 
