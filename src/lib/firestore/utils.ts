@@ -40,7 +40,7 @@ export async function fetchDocuments(
       : query(collection(db, path), limit(options?.limit));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      data.push(doc.data());
+      data.push({ id: doc.id, ...doc.data() });
     });
     return data;
   } catch (error) {

@@ -10,5 +10,5 @@ export async function fetchEntries(userId: string): Promise<Entry[]> {
     },
     limit: 25,
   });
-  return res.map(({ title, duration }) => ({ title, duration }));
+  return res.map(({ id, title, duration }) => ({ id, title, duration }));
 }
