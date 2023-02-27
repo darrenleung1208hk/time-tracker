@@ -1,9 +1,9 @@
 import React from "react";
+import DoubleArrowRoundedIcon from "@mui/icons-material/DoubleArrowRounded";
 import CardActionArea from "@mui/material/CardActionArea";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import DoubleArrowRoundedIcon from "@mui/icons-material/DoubleArrowRounded";
 import { COLOR } from "@/themes/palette";
 
 type Props = {
